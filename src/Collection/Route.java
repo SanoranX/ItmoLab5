@@ -71,7 +71,7 @@ public class Route {
     public String toString() {
         return "Название дороги: " + name + "\nID дороги: " + id + "\nDistance " + distance + "\nВремя создания объекта коллекции " + creationDate + "\nCoordinates X: " + coordinates.getX() + "\nCoordinates Y: " + coordinates.getY() + "\nLocation X: " + from.getX() + "\nLocation Y: " + from.getY() + "\nLocation Z " + from.getZ();
     }
-    
+
     public String getCSV() {
         return id + "," + name + "," + coordinates.getX() + "," + coordinates.getY() + "," + from.getX() + "," + from.getY() + "," + from.getZ() + "," + distance + ",";
     }
