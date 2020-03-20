@@ -13,10 +13,20 @@ public class Routes extends LinkedHashSet<Route> {
         this.path = path;
     }
 
-    public void add() {
-        add(new Route((long) (size() + 1)));
+    public void addWithCheck(long id){
+        int sizeBefore = size();
+        try{
+            add(new Route(id));
+        }catch (InputMismatchException e){
+            System.out.println("Вы ввели значение с ошибкой!");
+            if(sizeBefore < size())
+                remove(size());
+        }catch (Exception e){
+            System.out.println("Вы ввели значение с ошибкой!");
+            if(sizeBefore < size())
+                remove(size());
+        }
     }
-
     public void update(long id) {
         for (Route route : this) {
             if (route.getId().equals(id)) {

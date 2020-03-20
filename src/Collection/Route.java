@@ -14,38 +14,30 @@ public class Route {
     private Float distance; //Поле не может быть null, Значение поля должно быть больше 1 +
 
     public Route(Long par) {
-        try {
-            System.out.println("Для этого объекта был автоматически присвоен id - " + par);
-            id = par;
-            //Name
-            System.out.println("Введите название дороги");
+        System.out.println("Для этого объекта был автоматически присвоен id - " + par);
+        id = par;
+        //Name
+        System.out.println("Введите название дороги");
+        name = scanner.nextLine();
+        while (name.equals(null) || name.equals("")) {
+            System.out.println("Значение не может быть null или пустым, попробуйте ещё раз");
             name = scanner.nextLine();
-            while (name.equals(null) || name.equals("")) {
-                System.out.println("Значение не может быть null или пустым, попробуйте ещё раз");
-                name = scanner.nextLine();
-            }
-            //Distance
-            System.out.println("Enter distance");
-            distance = scanner.nextFloat();
-            while (distance.equals(null) || distance < 1) {
-                if (distance.equals(null))
-                    System.out.println("Вы ввели значение null");
-                else if (distance < 1)
-                    System.out.println("Вы ввели значение меньше 1");
-                distance = scanner.nextFloat();
-            }
-            //Coordinates
-            coordinates = new Coordinates();
-            //Location (from)
-            from = new LocationFrom();
-            System.out.println("Ready");
-        } catch (InputMismatchException e) {
-            System.out.println("Вы осуществили неправильный ввод, тем самым остановив программу. Требуемый тип ввода всегда написан перед вводом.");
-            //routes.removeById(routes.size());
-        } catch (Exception e) {
-            System.out.println("Произошла ошибка. Возможно, вы ввели не тот тип данных. Так же возможно, что вы вышли за пределы переменных.");
-            //routes.removeById(routes.size());
         }
+        //Distance
+        System.out.println("Enter distance");
+        distance = scanner.nextFloat();
+        while (distance.equals(null) || distance < 1) {
+            if (distance.equals(null))
+                System.out.println("Вы ввели значение null");
+            else if (distance < 1)
+                System.out.println("Вы ввели значение меньше 1");
+            distance = scanner.nextFloat();
+        }
+        //Coordinates
+        coordinates = new Coordinates();
+        //Location (from)
+        from = new LocationFrom();
+        System.out.println("Ready");
     }
 
     public Route(Long parID, String parName, Double parCoordinatesX, Double parCoordinatesY, Float parLocationX, Integer parLocationY, Long parLocationZ, Float parDestination) {
