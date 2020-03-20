@@ -170,6 +170,7 @@ public class Routes extends LinkedHashSet<Route> {
             scanner.useDelimiter(",");
             while (scanner.hasNext()) {
                 add(new Route(
+                        scanner.next(),
                         Long.parseLong(scanner.next()),
                         scanner.next(),
                         Double.parseDouble(scanner.next()),

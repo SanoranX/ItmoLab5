@@ -43,7 +43,7 @@ public class Main {
         AbstractCommand.setCommands(routes, "Позволяет добавлять новый элемент в коллекцию.", "add", Add.class);
         AbstractCommand.setCommands(routes, "Если нет аргумента, позволяет вывести информацию о всей коллекции. Если аргумент есть, то выводит информацию об объекте с айди равному аргументу", "show", Show.class);
         AbstractCommand.setCommands(routes, "Выводит информацию о коллекции.", "info", Info.class);
-        AbstractCommand.setCommands(routes, "Завершает работу программы", "exit", Exit.class);
+        AbstractCommand.setCommands(routes, "Завершает работу программы без сохранения коллекции", "exit", Exit.class);
         AbstractCommand.setCommands(routes, "Очищает полностью коллекцию", "clear", Clear.class);
         AbstractCommand.setCommands(routes, "Удаляет все элементы коллекции больше ID которых больше, чем аргумент", "remove_greater", RemoveGreater.class);
         AbstractCommand.setCommands(routes, "Сохраняет всю коллекцию в csv файл.", "save", Save.class);

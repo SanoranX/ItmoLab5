@@ -1,5 +1,7 @@
 package Collection;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,6 +16,9 @@ public class Route {
     private Float distance; //Поле не может быть null, Значение поля должно быть больше 1 +
 
     public Route(Long par) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        creationDate = LocalDateTime.now();
         System.out.println("Для этого объекта был автоматически присвоен id - " + par);
         id = par;
         //Name
@@ -40,7 +45,8 @@ public class Route {
         System.out.println("Ready");
     }
 
-    public Route(Long parID, String parName, Double parCoordinatesX, Double parCoordinatesY, Float parLocationX, Integer parLocationY, Long parLocationZ, Float parDestination) {
+    public Route(String creationTime, Long parID, String parName, Double parCoordinatesX, Double parCoordinatesY, Float parLocationX, Integer parLocationY, Long parLocationZ, Float parDestination) {
+        this.creationDate = LocalDateTime.parse(creationTime);
         id = parID;
         name = parName;
         coordinates.setX(parCoordinatesX);
@@ -65,7 +71,7 @@ public class Route {
     }
 
     public String getCSV() {
-        return id + "," + name + "," + coordinates.getX() + "," + coordinates.getY() + "," + from.getX() + "," + from.getY() + "," + from.getZ() + "," + distance + ",";
+        return creationDate.toString() + "," + id + "," + name + "," + coordinates.getX() + "," + coordinates.getY() + "," + from.getX() + "," + from.getY() + "," + from.getZ() + "," + distance + ",";
     }
 
 }
