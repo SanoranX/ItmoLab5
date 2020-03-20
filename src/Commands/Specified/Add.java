@@ -24,7 +24,7 @@ public class Add extends AbstractCommand {
     public void execute(String arg) throws IOException {
         if(arg.equals(""))
             routes.add(new Route((long) (routes.size() + 1)));
-        else{
+        /*else{
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
             Route route = gson.fromJson(arg, Route.class);
@@ -34,6 +34,6 @@ public class Add extends AbstractCommand {
             else{
                 routes.add(route);
             }
-        }
+        } */
     }
 }

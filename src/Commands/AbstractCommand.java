@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractCommand {
 
-    private static boolean DEBUG = true;
+    private static boolean DEBUG = false;
 
     public static History history = new History();
     protected static ArrayList<AbstractCommand> commands = new ArrayList<>();

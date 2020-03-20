@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="lab5:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/lab5_jar</output-path>
+    <root id="archive" name="lab5.jar">
+      <element id="module-output" name="lab5" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/gson-2.8.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/artifacts/lab51_jar/lab51.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

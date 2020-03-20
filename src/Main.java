@@ -37,7 +37,7 @@ public class Main {
         if(!path.equals(""))
             routes.read(path);
 
-        AbstractCommand.setCommands(routes, "Выводит информацию об авторе и как же он хочет умереть", "about", About.class);
+        AbstractCommand.setCommands(routes, "Выводит информацию об авторе", "about", About.class);
         AbstractCommand.setCommands(routes, "Выводит подсказку по всем командам", "help", Help.class);
         AbstractCommand.setCommands(routes, "Удаляет объект по его ID", "remove_by_id", RemoveById.class);
         AbstractCommand.setCommands(routes, "Позволяет добавлять новый элемент в коллекцию.", "add", Add.class);
