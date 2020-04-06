@@ -1,6 +1,5 @@
 package Collection;
 
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import java.io.*;
 import java.sql.SQLOutput;
 import java.util.*;
@@ -166,20 +165,25 @@ public class Routes extends LinkedHashSet<Route> {
 
     public void read(String path) {
         try {
-            Scanner scanner = new Scanner(new File(path));
+            File file = new File(path);
+            Scanner scanner = new Scanner(file);
             scanner.useDelimiter(",");
-            while (scanner.hasNext()) {
-                add(new Route(
-                        scanner.next(),
-                        Long.parseLong(scanner.next()),
-                        scanner.next(),
-                        Double.parseDouble(scanner.next()),
-                        Double.parseDouble(scanner.next()),
-                        Float.parseFloat(scanner.next()),
-                        Integer.parseInt(scanner.next()),
-                        Long.parseLong(scanner.next()),
-                        Float.parseFloat(scanner.next())
-                ));
+            if(!file.exists()) System.out.println("Файл не существует.");
+            if(!file.canRead()) System.out.println("Невозможно начать чтение из файла");
+            else{
+                while (scanner.hasNext()) {
+                    add(new Route(
+                            scanner.next(),
+                            Long.parseLong(scanner.next()),
+                            scanner.next(),
+                            Double.parseDouble(scanner.next()),
+                            Double.parseDouble(scanner.next()),
+                            Float.parseFloat(scanner.next()),
+                            Integer.parseInt(scanner.next()),
+                            Long.parseLong(scanner.next()),
+                            Float.parseFloat(scanner.next())
+                    ));
+                }
             }
 
         } catch (FileNotFoundException e) {
