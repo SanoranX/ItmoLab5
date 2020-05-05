@@ -12,15 +12,14 @@ public class Route {
     private Coordinates coordinates = new Coordinates(1); //Поле не может быть null +
     private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private LocationFrom from = new LocationFrom(1); //Поле не может быть null +
-    //private Location to; //Поле может быть null
     private Float distance; //Поле не может быть null, Значение поля должно быть больше 1 +
 
-    public Route(Long par) {
+    public Route(Long id) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
         creationDate = LocalDateTime.now();
-        System.out.println("Для этого объекта был автоматически присвоен id - " + par);
-        id = par;
+        System.out.println("Для этого объекта был автоматически присвоен id - " + id);
+        this.id = id;
         //Name
         System.out.println("Введите название дороги");
         name = scanner.nextLine();
@@ -28,6 +27,7 @@ public class Route {
             System.out.println("Значение не может быть null или пустым, попробуйте ещё раз");
             name = scanner.nextLine();
         }
+
         //Distance
         System.out.println("Enter distance");
         distance = scanner.nextFloat();

@@ -20,12 +20,9 @@ public class ExecuteScript extends AbstractCommand {
             System.out.println("Вы не ввели путь к скрипту. Команда не выполнилась");
         else {
             File file = new File(arg);
-            if (!file.exists())
-                System.out.println("Файла не существует");
-            else if (file.exists() && !file.canRead())
-                System.out.println("Файл существует, но невозможно получить доступ к файлу.Проверьте права");
-            else if (file.exists() && !file.canExecute())
-                System.out.println("Файл существует, но скрипт невозможно выполнить. Проверьте права на выполнение.");
+            if (!file.exists()) System.out.println("Файла не существует");
+            else if (file.exists() && !file.canRead()) System.out.println("Файл существует, нет прав на чтение.");
+            else if (file.exists() && !file.canExecute()) System.out.println("Проверьте файл на выполнение");
             else {
                 Scanner scanner = new Scanner(file);
                 while (scanner.hasNextLine()) {
@@ -35,7 +32,7 @@ public class ExecuteScript extends AbstractCommand {
                         if (!routes.isEmpty()) {
                             AbstractCommand cmd = AbstractCommand.getCommand(AbstractCommand.parseCommand(collection.get(0)));
                             cmd.execute(collection.get(1));
-                        } else System.err.println("Коллекция пустая, рекурсия прервалась");
+                        } else System.err.println("Рекурсия прервалась");
                     } else {
                         AbstractCommand cmd = AbstractCommand.getCommand(AbstractCommand.parseCommand(line));
                         String argum = AbstractCommand.parseArg(line);
