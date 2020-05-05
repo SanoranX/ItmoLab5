@@ -18,6 +18,7 @@ public class RemoveById extends AbstractCommand {
             System.out.println("Вы не ввели аргумент.");
         try {
             routes.removeRoute(Long.parseLong(arg));
+            routes.saveTemp();
         }catch (InputMismatchException e){
             System.out.println("Вы ввели неверное значение в качестве аргумента");
         }catch (NumberFormatException e){

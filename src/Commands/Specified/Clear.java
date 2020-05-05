@@ -17,6 +17,7 @@ public class Clear extends AbstractCommand {
         if(!arg.equals(""))
             System.out.println("Напоминание: данной команде не нужны аргументы.");
         routes.clear(); //Решил немного сэкономить места в коде
+        routes.saveTemp();
     }
 
 }

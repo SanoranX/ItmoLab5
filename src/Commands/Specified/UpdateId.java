@@ -20,6 +20,7 @@ public class UpdateId extends AbstractCommand {
             try {
                 routes.removeRoute(Long.parseLong(arg));
                 routes.addWithCheck(routes.size()+1);
+                routes.saveTemp();
             }catch (InputMismatchException e){
                 System.out.println("Вы ввели неверное значение в качестве аргумента");
             }catch (NumberFormatException e){

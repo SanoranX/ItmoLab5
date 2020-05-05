@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Routes extends LinkedHashSet<Route> {
 
+    public final String TEMPPATH = "TempSave.csv";
     private String path;
 
     public Routes(String path) {
@@ -87,6 +88,14 @@ public class Routes extends LinkedHashSet<Route> {
         System.out.println("Тип коллекции: Routes" + " Кол-во элементов: " + size());
     }
 
+    public boolean contains(long id){
+        for(int i = 0; i < size(); i++){
+            if(i == id)
+                return true;
+        }
+        return false;
+    }
+
     public void removeGreater(long id) {
         long count = 0;
         for (Route route : this) {
@@ -136,12 +145,17 @@ public class Routes extends LinkedHashSet<Route> {
      * Сохраняет коллекцию в файл. Используется File, FileWriter, BufferedWriter
      */
 
+    public void saveTemp(){
+        String tempPath = this.path;
+        this.path = TEMPPATH;
+        save();
+        this.path = tempPath;
+    }
     public void save() {
-
         if (!path.equals("")) {
             try {
                 File file = new File(path);
-                if (!file.exists()) System.out.println("Файл не был обнаружен, создаём новый");
+                if (!file.exists() && path != TEMPPATH) System.out.println("Файл не был обнаружен, создаём новый");
                 if (file.exists() && !file.canWrite())
                     System.out.println("Файл был обнаружен, но мы не можем в него записывать");
                 else {

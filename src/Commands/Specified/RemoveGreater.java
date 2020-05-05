@@ -22,6 +22,7 @@ public class RemoveGreater extends AbstractCommand {
         else {
             try{
                 routes.removeGreaterThanId(Long.parseLong(arg));
+                routes.saveTemp();
             }catch (InputMismatchException e){
                 System.out.println("Ошибка ввода");
             }catch(NumberFormatException e){

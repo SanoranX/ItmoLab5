@@ -19,8 +19,10 @@ public class Add extends AbstractCommand {
 
     @Override
     public void execute(String arg) throws IOException {
-        if(arg.equals(""))
+        if(arg.equals("")) {
             routes.addWithCheck(routes.size() + 1);
+            routes.saveTemp();
+        }
         /*else{
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();

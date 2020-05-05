@@ -9,7 +9,7 @@ public class History extends AbstractCommand {
     public History(Routes routes) {
         super(routes);
     }
-
+ //TODO: Delete new line
     @Override
     public void execute(String arg) throws IOException {
         if(!arg.equals(""))

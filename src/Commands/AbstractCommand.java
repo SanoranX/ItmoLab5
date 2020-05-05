@@ -14,7 +14,6 @@ public abstract class AbstractCommand {
     protected static ArrayList<AbstractCommand> commands = new ArrayList<>();
     public String helpText;
     public String syntax; //Сама команда, во время выполнения главного цикла в Main мы ищем такую команду среди всех команд.
-    //TODO: JavaDoc
     protected Routes routes;
     public AbstractCommand(Routes routes) {
         this.routes = routes;
@@ -28,6 +27,15 @@ public abstract class AbstractCommand {
         throw new NoSuchFieldException("Такой команды нет");
     }
 
+    public static void setCommandsBeta(String helpText, String syntax, AbstractCommand e){
+        AbstractCommand command = e;
+        command.helpText = helpText;
+        command.syntax = syntax;
+        //command.routes = routes;
+        if(DEBUG)
+            System.out.println("Инициализировано");
+        commands.add(command);
+    }
     public static void setCommands(Routes routes, String helpText, String syntax, Class<? extends AbstractCommand> clazz) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         AbstractCommand command = clazz.getConstructor(Routes.class).newInstance(routes);
         command.helpText = helpText;
